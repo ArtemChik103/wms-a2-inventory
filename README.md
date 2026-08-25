@@ -2,7 +2,11 @@
 
 Веб-интерфейс раздела «Товары на складе» для системы складского учета **WMS А2**.
 
+- 🚀 **Live Demo (Vercel)**: [https://zadanie2-nine.vercel.app](https://zadanie2-nine.vercel.app)
+- 📦 **GitHub Repository**: [https://github.com/ArtemChik103/wms-a2-inventory](https://github.com/ArtemChik103/wms-a2-inventory)
+
 ---
+
 
 ## Демонстрация работы интерфейса
 
