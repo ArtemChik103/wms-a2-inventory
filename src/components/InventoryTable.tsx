@@ -210,8 +210,9 @@ export const InventoryTable: React.FC<InventoryTableProps> = ({
         </table>
       </div>
 
-      {/* Footer Info */}
+      {/* Нижняя информационная строка таблицы */}
       <div className="flex items-center justify-between border-t border-slate-200 bg-slate-50/50 px-5 py-3 text-xs text-slate-500">
+
         <div>
           Отображено строк: <span className="font-mono font-semibold text-slate-700">{items.length}</span>
         </div>

@@ -2,23 +2,22 @@
 
 Веб-интерфейс раздела «Товары на складе» для системы складского учета **WMS А2**.
 
-- 🚀 **Live Demo (Vercel)**: [https://zadanie2-nine.vercel.app](https://zadanie2-nine.vercel.app)
-- 📦 **GitHub Repository**: [https://github.com/ArtemChik103/wms-a2-inventory](https://github.com/ArtemChik103/wms-a2-inventory)
+- **Демонстрация онлайн (Vercel)**: [https://zadanie2-nine.vercel.app](https://zadanie2-nine.vercel.app)
 
 ---
-
 
 ## Демонстрация работы интерфейса
 
 ![Демонстрация работы WMS А2](demo.gif)
 
-> **Форматы демонстрации:**
-> - [Смотреть видео MP4 (`demo.mp4`)](./demo.mp4)
-> - [Смотреть видео WebM (`demo.webm`)](./demo.webm)
+> **Файлы демонстрации:**
+> - [Видео MP4 (`demo.mp4`)](./demo.mp4)
+> - [Видео WebM (`demo.webm`)](./demo.webm)
 > 
 > В анимации продемонстрированы: переключение разделов (*Товары*, *Приёмка*, *Отгрузка*, *Ячейки*), живой поиск, фильтрация по статусам, сортировка колонок, открытие карточки товара, смена статуса в реальном времени, центр уведомлений и добавление нового SKU.
 
 ---
+
 
 
 

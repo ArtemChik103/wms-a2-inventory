@@ -32,7 +32,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Global hotkey '/' to focus search
+  // Глобальная горячая клавиша '/' для фокусировки поля поиска
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
@@ -53,7 +53,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-2xs">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-        {/* Search input field */}
+        {/* Поле ввода поискового запроса */}
         <div className="relative flex-1">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
             <Search className="h-4 w-4" />
@@ -85,9 +85,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           </div>
         </div>
 
-        {/* Filter controls */}
+        {/* Элементы управления фильтрами */}
         <div className="flex flex-wrap items-center gap-2.5">
-          {/* Status Dropdown */}
+          {/* Выпадающий список выбора статуса */}
           <div className="relative flex items-center">
             <Filter className="pointer-events-none absolute left-3 h-3.5 w-3.5 text-slate-400" />
             <select
@@ -108,7 +108,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             </div>
           </div>
 
-          {/* Reset Filters Button */}
+          {/* Кнопка сброса фильтров */}
           {hasActiveFilters && (
             <button
               type="button"
@@ -120,12 +120,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             </button>
           )}
 
-          {/* Counter info */}
+          {/* Счетчик найденных позиций */}
           <div className="ml-auto lg:ml-2 text-xs text-slate-500 font-medium">
             Найдено: <span className="font-mono font-bold text-slate-900">{resultsCount}</span> из <span className="font-mono text-slate-600">{totalCount}</span>
           </div>
         </div>
       </div>
     </div>
+
   );
 };

@@ -120,7 +120,7 @@ export const StorageCellsView: React.FC<{ onBackToGoods: () => void }> = ({ onBa
         </button>
       </div>
 
-      {/* Zone Switcher */}
+      {/* Переключатель зон склада */}
       <div className="flex items-center gap-2 border-b border-slate-200 pb-3">
         {STORAGE_ZONES.map((z) => (
           <button
@@ -138,7 +138,7 @@ export const StorageCellsView: React.FC<{ onBackToGoods: () => void }> = ({ onBa
         ))}
       </div>
 
-      {/* Zone summary banner */}
+      {/* Сводная плашка зоны склада */}
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -167,8 +167,9 @@ export const StorageCellsView: React.FC<{ onBackToGoods: () => void }> = ({ onBa
         </div>
       </div>
 
-      {/* Visual Racks */}
+      {/* Графическое отображение стеллажей и ячеек */}
       <div className="space-y-4">
+
         {currentZone.racks.map((rack, idx) => (
           <div key={idx} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">

@@ -33,7 +33,7 @@ export function App() {
   const [selectedItem, setSelectedItem] = useState<InventoryItem | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Save to localStorage on update
+  // Сохранение в LocalStorage при обновлении
   const updateItemsAndPersist = (newItems: InventoryItem[]) => {
     setItems(newItems);
     localStorage.setItem('wms_a2_inventory', JSON.stringify(newItems));
@@ -46,7 +46,7 @@ export function App() {
     }, 2500);
   };
 
-  // Status update handler for item modal
+  // Обработчик обновления статуса из модальной карточки
   const handleUpdateStatus = (id: string, newStatus: ItemStatus) => {
     const updated = items.map((item) =>
       item.id === id ? { ...item, status: newStatus, updatedAt: 'Только что' } : item
@@ -58,7 +58,7 @@ export function App() {
     showToast(`Статус товара изменен на «${newStatus}»`);
   };
 
-  // Sorting handler
+  // Обработчик переключения сортировки
   const handleSort = (field: SortField) => {
     if (sortField === field) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
@@ -68,17 +68,17 @@ export function App() {
     }
   };
 
-  // Filtering and sorting items
+  // Фильтрация и сортировка товаров
   const filteredAndSortedItems = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
     const filtered = items.filter((item) => {
-      // Status filter
+      // Фильтрация по выбранному статусу
       if (selectedStatus !== 'all' && item.status !== selectedStatus) {
         return false;
       }
 
-      // Search filter (name, SKU, category, cell)
+      // Поиск по наименованию, SKU, категории и ячейке
       if (query) {
         const matchesName = item.name.toLowerCase().includes(query);
         const matchesSku = item.sku.toLowerCase().includes(query);
@@ -120,7 +120,7 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
-      {/* Header */}
+      {/* Верхняя панель */}
       <Header
         totalItemsCount={items.length}
         activeTab={activeTab}
@@ -129,7 +129,7 @@ export function App() {
         }}
       />
 
-      {/* Main Content Area */}
+      {/* Основная область контента */}
       <main className="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         {activeTab === 'receiving' && (
           <ReceivingView onBackToGoods={() => setActiveTab('goods')} />
@@ -145,7 +145,7 @@ export function App() {
 
         {activeTab === 'goods' && (
           <>
-            {/* Page Title and Action Bar */}
+            {/* Заголовок страницы и панель действий */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -206,14 +206,14 @@ export function App() {
               </div>
             </div>
 
-            {/* Stats Summary Bar */}
+            {/* Панель сводки и ключевых метрик */}
             <StatsBar
               items={items}
               selectedStatus={selectedStatus}
               onSelectStatus={(st) => setSelectedStatus(st)}
             />
 
-            {/* Search & Filter Toolbar */}
+            {/* Панель поиска и фильтрации */}
             <SearchBar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
@@ -224,7 +224,7 @@ export function App() {
               onReset={handleResetFilters}
             />
 
-            {/* Inventory Data Table */}
+            {/* Таблица номенклатуры товаров */}
             <InventoryTable
               items={filteredAndSortedItems}
               sortField={sortField}
@@ -237,14 +237,14 @@ export function App() {
         )}
       </main>
 
-      {/* Product Detail Modal */}
+      {/* Модальная карточка товара */}
       <ProductDetailModal
         item={selectedItem}
         onClose={() => setSelectedItem(null)}
         onUpdateStatus={handleUpdateStatus}
       />
 
-      {/* Toast Feedback Notification */}
+      {/* Всплывающее уведомление (Toast) */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-xs font-medium text-white shadow-xl animate-in slide-in-from-bottom-4 duration-150">
           <Check className="h-4 w-4 text-emerald-400" />
@@ -252,7 +252,7 @@ export function App() {
         </div>
       )}
 
-      {/* System Footer */}
+      {/* Подвал системы */}
       <footer className="border-t border-slate-200 bg-white py-4 mt-auto">
         <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 text-xs text-slate-500 gap-2">
           <div className="flex items-center gap-2">

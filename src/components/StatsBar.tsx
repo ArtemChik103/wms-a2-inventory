@@ -26,7 +26,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({
 
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-      {/* Total */}
+      {/* Все позиции */}
       <button
         type="button"
         onClick={() => onSelectStatus('all')}
@@ -50,7 +50,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({
         </div>
       </button>
 
-      {/* Ready */}
+      {/* Готов к отгрузке */}
       <button
         type="button"
         onClick={() =>
@@ -76,7 +76,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({
         </div>
       </button>
 
-      {/* Assembly */}
+      {/* На сборке */}
       <button
         type="button"
         onClick={() =>
@@ -102,7 +102,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({
         </div>
       </button>
 
-      {/* Storage */}
+      {/* На хранении */}
       <button
         type="button"
         onClick={() =>
@@ -128,7 +128,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({
         </div>
       </button>
 
-      {/* Written Off */}
+      {/* Списано */}
       <button
         type="button"
         onClick={() =>

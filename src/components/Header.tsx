@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Left: Brand and Active Section */}
+        {/* Левая часть: логотип, бренд и переключатель разделов */}
         <div className="flex items-center gap-6">
           <div
             className="flex items-center gap-2.5 cursor-pointer"
@@ -70,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <div className="hidden h-6 w-px bg-slate-200 md:block" />
 
-          {/* Current Section navigation */}
+          {/* Навигация по разделам */}
           <nav className="flex items-center gap-1.5" aria-label="Разделы системы">
             {/* Товары */}
             <button
@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
         </div>
 
-        {/* Right: Warehouse status and Operator profile */}
+        {/* Правая часть: статус склада, уведомления и профиль */}
         <div className="flex items-center gap-3 relative">
           <div className="hidden lg:flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-600">
             <Warehouse className="h-3.5 w-3.5 text-slate-400" />
@@ -157,7 +157,7 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           </div>
 
-          {/* Notifications button with popup */}
+          {/* Кнопка уведомлений с выпадающим окном */}
           <div className="relative">
             <button
               type="button"

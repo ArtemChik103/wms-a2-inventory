@@ -77,7 +77,7 @@ export const ReceivingView: React.FC<{ onBackToGoods: () => void }> = ({ onBackT
         </button>
       </div>
 
-      {/* Stats */}
+      {/* Ключевые показатели приёмки */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
           <div className="text-xs text-slate-500">Поставок сегодня</div>
@@ -97,8 +97,9 @@ export const ReceivingView: React.FC<{ onBackToGoods: () => void }> = ({ onBackT
         </div>
       </div>
 
-      {/* Table */}
+      {/* Таблица входящих поставок */}
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xs">
+
         <div className="border-b border-slate-200 bg-slate-50/75 px-5 py-3.5 flex items-center justify-between">
           <div className="flex items-center gap-2 font-semibold text-slate-800 text-sm">
             <ArrowDownLeft className="h-4 w-4 text-blue-600" />

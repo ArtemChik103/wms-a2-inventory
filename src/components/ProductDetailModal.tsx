@@ -55,7 +55,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     setTimeout(() => setPrintSuccess(false), 2000);
   };
 
-  // Parse cell location, e.g., A-14-02 -> Zone A, Rack 14, Tier 02
+  // Разбор структуры адреса ячейки (например: A-14-02 -> Зона A, Стеллаж 14, Полка 02)
   const cellParts = item.cell.split('-');
   const zoneLetter = cellParts[0] || 'A';
   const rackNum = cellParts[1] || '01';
@@ -70,7 +70,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         className="relative w-full max-w-xl rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden animate-in zoom-in-95 duration-150"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {/* Шапка модального окна */}
         <div className="flex items-start justify-between border-b border-slate-100 bg-slate-50/75 p-5">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
@@ -96,9 +96,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           </button>
         </div>
 
-        {/* Modal Body */}
+        {/* Тело модального окна */}
         <div className="max-h-[75vh] overflow-y-auto p-5 space-y-5">
-          {/* Status & Quick Switch */}
+          {/* Статус товара и быстрое переключение */}
           <div className="rounded-xl border border-slate-200/80 bg-slate-50/50 p-4">
             <div className="flex items-center justify-between">
               <div>
@@ -134,7 +134,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Location & Storage Details */}
+          {/* Складское размещение и параметры хранения */}
           <div>
             <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2.5">
               Складское размещение
@@ -173,9 +173,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Quantity, Barcode & Parameters */}
+          {/* Остаток, штрихкод и параметры */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {/* Stock Quantity */}
+            {/* Остаток на складе */}
             <div className="rounded-xl border border-slate-200 bg-white p-3.5">
               <div className="flex items-center justify-between text-xs text-slate-500">
                 <span>Остаток в ячейке</span>
@@ -194,7 +194,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             </div>
 
-            {/* Barcode */}
+            {/* Штрихкод */}
             <div className="rounded-xl border border-slate-200 bg-white p-3.5">
               <div className="flex items-center justify-between text-xs text-slate-500">
                 <span>Штрихкод (EAN-13)</span>
@@ -218,7 +218,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Description */}
+          {/* Описание */}
           {item.description && (
             <div>
               <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
@@ -230,7 +230,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
           )}
 
-          {/* History Timeline */}
+          {/* История операций */}
           {item.history && item.history.length > 0 && (
             <div>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
@@ -255,7 +255,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           )}
         </div>
 
-        {/* Modal Footer Actions */}
+        {/* Кнопки действий в подвале модального окна */}
         <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50/75 p-4">
           <div className="flex items-center gap-2">
             <button
