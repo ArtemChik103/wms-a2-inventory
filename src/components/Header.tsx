@@ -1,17 +1,28 @@
 import React from 'react';
 import { Package, Warehouse, Activity, Bell, UserCircle2 } from 'lucide-react';
 
+export type MainTab = 'goods' | 'receiving' | 'shipping' | 'cells';
+
 interface HeaderProps {
   totalItemsCount: number;
+  activeTab: MainTab;
+  onTabChange: (tab: MainTab) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ totalItemsCount }) => {
+export const Header: React.FC<HeaderProps> = ({
+  totalItemsCount,
+  activeTab,
+  onTabChange,
+}) => {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200/90 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: Brand and Active Section */}
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2.5">
+          <div
+            className="flex items-center gap-2.5 cursor-pointer"
+            onClick={() => onTabChange('goods')}
+          >
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white shadow-xs">
               <Package className="h-5 w-5" />
             </div>
@@ -33,28 +44,81 @@ export const Header: React.FC<HeaderProps> = ({ totalItemsCount }) => {
           <div className="hidden h-6 w-px bg-slate-200 md:block" />
 
           {/* Current Section navigation */}
-          <nav className="flex items-center gap-2" aria-label="Разделы системы">
-            <div className="flex items-center gap-2 rounded-lg bg-blue-50/80 px-3 py-1.5 text-sm font-semibold text-blue-700 ring-1 ring-blue-500/20">
-              <span className="h-2 w-2 rounded-full bg-blue-600" />
+          <nav className="flex items-center gap-1.5" aria-label="Разделы системы">
+            {/* Товары */}
+            <button
+              type="button"
+              onClick={() => onTabChange('goods')}
+              className={`flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-semibold transition-all ${
+                activeTab === 'goods'
+                  ? 'bg-blue-50/90 text-blue-700 ring-1 ring-blue-500/25 shadow-2xs'
+                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              }`}
+            >
+              <span
+                className={`h-2 w-2 rounded-full ${
+                  activeTab === 'goods' ? 'bg-blue-600' : 'bg-slate-300'
+                }`}
+              />
               <span>Товары</span>
-              <span className="rounded-full bg-blue-200/70 px-1.5 py-0.2 font-mono text-xs font-bold text-blue-800">
+              <span
+                className={`rounded-full px-1.5 py-0.2 font-mono text-xs font-bold ${
+                  activeTab === 'goods'
+                    ? 'bg-blue-200/70 text-blue-800'
+                    : 'bg-slate-200/80 text-slate-700'
+                }`}
+              >
                 {totalItemsCount}
               </span>
-            </div>
+            </button>
 
-            <div className="hidden items-center gap-1 sm:flex">
-              <span className="rounded-md px-3 py-1.5 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-700 cursor-not-allowed opacity-60">
-                Приёмка
+            {/* Приёмка */}
+            <button
+              type="button"
+              onClick={() => onTabChange('receiving')}
+              className={`hidden sm:flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-all ${
+                activeTab === 'receiving'
+                  ? 'bg-blue-50/90 text-blue-700 ring-1 ring-blue-500/25 font-semibold shadow-2xs'
+                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              }`}
+            >
+              <span>Приёмка</span>
+              <span className="rounded-full bg-slate-100 px-1.5 py-0.2 font-mono text-[11px] text-slate-500">
+                4
               </span>
-              <span className="rounded-md px-3 py-1.5 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-700 cursor-not-allowed opacity-60">
-                Отгрузка
+            </button>
+
+            {/* Отгрузка */}
+            <button
+              type="button"
+              onClick={() => onTabChange('shipping')}
+              className={`hidden sm:flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-all ${
+                activeTab === 'shipping'
+                  ? 'bg-blue-50/90 text-blue-700 ring-1 ring-blue-500/25 font-semibold shadow-2xs'
+                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              }`}
+            >
+              <span>Отгрузка</span>
+              <span className="rounded-full bg-slate-100 px-1.5 py-0.2 font-mono text-[11px] text-slate-500">
+                3
               </span>
-              <span className="rounded-md px-3 py-1.5 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-700 cursor-not-allowed opacity-60">
-                Ячейки
-              </span>
-            </div>
+            </button>
+
+            {/* Ячейки */}
+            <button
+              type="button"
+              onClick={() => onTabChange('cells')}
+              className={`hidden sm:flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-all ${
+                activeTab === 'cells'
+                  ? 'bg-blue-50/90 text-blue-700 ring-1 ring-blue-500/25 font-semibold shadow-2xs'
+                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              }`}
+            >
+              <span>Ячейки</span>
+            </button>
           </nav>
         </div>
+
 
         {/* Right: Warehouse status and Operator profile */}
         <div className="flex items-center gap-3">
